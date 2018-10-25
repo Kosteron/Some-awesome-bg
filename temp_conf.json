@@ -1,0 +1,11 @@
+{
+	    "name": "some-awesome-bg", "targetUrl": "file:///home/koriastra/Developpement/BUILD/index.html", "counter": false, "bounce": false, "width": 1280, "height": 800, "showMenuBar": false, "fastQuit": false, "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36", "nativefierVersion":"7.6.7", "ignoreCertificate":true, "disableGpu":false, "ignoreGpuBlacklist":false, "enableEs3Apis":false, "insecure":true, "flashPluginDir":null, "diskCacheSize":null, "fullScreen":false, "maximize":true, "zoom":1, "internalUrls":null, "singleInstance":false, "win32metadata": {
+		"ProductName": "SomeAwesomeBG", "InternalName": "SomeAwesomeBG", "FileDescription": "SomeAwesomeBG"
+	    }
+	    ,
+	    "tray":false,
+	    "basicAuthUsername":null,
+	    "basicAuthPassword":null,
+	    "alwaysOnTop":false,
+	    "titleBarStyle":null
+	}

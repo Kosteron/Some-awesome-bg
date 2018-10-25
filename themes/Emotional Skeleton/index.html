@@ -1,0 +1,681 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+@import url('https://fonts.googleapis.com/css?family=Lato');
+/* ----------------------------------------------- */
+/*                    Parameters                   */
+/* ----------------------------------------------- */
+/* --- Colors --- */
+/* --- Fonts --- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+html,
+body {
+  font-family: 'Lato', sans-serif;
+  color: #fefefc;
+  background-color: #1a3540;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+}
+.animate-wrapper {
+  z-index: 30;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: move_skull 6s linear infinite;
+}
+.skull {
+  transition: 1s;
+  z-index: 30;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  width: 290px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: #dde2e8;
+  /* --- Skull Expression --- */
+}
+.skull::before {
+  content: "";
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translate(-50%);
+  height: 60px;
+  width: 320px;
+  border-radius: 60px;
+  background-color: #dde2e8;
+}
+.skull .skull-extra {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%);
+  height: 20px;
+  width: 240px;
+  background-color: #dde2e8;
+}
+.skull .skull-extra::before {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #1a3540;
+}
+.skull .skull-extra::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #1a3540;
+}
+.skull .eye-1 {
+  position: absolute;
+  top: 140px;
+  left: 60px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background-color: #6d827e;
+  overflow: hidden;
+  animation: blink_eye 4s 2s infinite;
+}
+.skull .eye-1::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background-color: #1a3540;
+}
+.skull .eye-2 {
+  position: absolute;
+  top: 140px;
+  right: 60px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background-color: #6d827e;
+  overflow: hidden;
+  animation: blink_eye 4s 2s infinite;
+}
+.skull .eye-2::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background-color: #1a3540;
+}
+.skull .eye-2.sad {
+  height: 80px;
+  width: 60px;
+  border-top-left-radius: 120px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 80px;
+  transform: rotate(-50deg);
+}
+.skull .eye-2.sad::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 5px;
+  height: 80px;
+  width: 60px;
+  border-top-left-radius: 120px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 80px;
+}
+.skull .nose {
+  position: absolute;
+  left: 50%;
+  bottom: 40px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-right: 25px solid transparent;
+  border-left: 25px solid transparent;
+  border-bottom: 45px solid #6d827e;
+}
+.skull .nose::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: -10px;
+  width: 1px;
+  height: 1px;
+  border-right: 10px solid transparent;
+  border-left: 25px solid transparent;
+  border-bottom: 40px solid #1a3540;
+}
+.skull .mouth {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%);
+  height: 50px;
+  width: 200px;
+  border-radius: 20px;
+  background-color: #dde2e8;
+}
+.skull .mouth::after {
+  content: "";
+  position: absolute;
+  bottom: -65px;
+  left: 50%;
+  transform: translate(-50%);
+  height: 30px;
+  width: 180px;
+  border-radius: 5px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: #dde2e8;
+}
+.skull .mouth ul.tooth {
+  /* Top */
+  /* Bottom */
+}
+.skull .mouth ul.tooth li {
+  position: absolute;
+  left: 30px;
+  list-style: none;
+  background: #dde2e8;
+  width: 15px;
+  height: 15px;
+}
+.skull .mouth ul.tooth li.up {
+  bottom: -15px;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+.skull .mouth ul.tooth li.down {
+  bottom: -35px;
+  /* 30 + spacing */
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+.skull .mouth ul.tooth li:nth-child(1) {
+  left: 60px;
+}
+.skull .mouth ul.tooth li:nth-child(2) {
+  left: 90px;
+}
+.skull .mouth ul.tooth li:nth-child(3) {
+  left: 120px;
+}
+.skull .mouth ul.tooth li:nth-child(4) {
+  left: 150px;
+}
+.skull .mouth ul.tooth li:nth-child(5) {
+  left: 30px;
+}
+.skull .mouth ul.tooth li:nth-child(6) {
+  left: 60px;
+}
+.skull .mouth ul.tooth li:nth-child(7) {
+  left: 90px;
+}
+.skull .mouth ul.tooth li:nth-child(8) {
+  left: 120px;
+}
+.skull .mouth ul.tooth li:nth-child(9) {
+  left: 150px;
+}
+.skull.sad .eye-1 {
+  position: absolute;
+  top: 140px;
+  left: 60px;
+  height: 80px;
+  width: 60px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 120px;
+  border-bottom-left-radius: 80px;
+  border-bottom-right-radius: 40px;
+  transform: rotate(50deg);
+  background-color: #6d827e;
+  overflow: hidden;
+  animation: none;
+}
+.skull.sad .eye-1::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  height: 80px;
+  width: 60px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 120px;
+  border-bottom-left-radius: 80px;
+  border-bottom-right-radius: 40px;
+  background-color: #1a3540;
+}
+.skull.sad .eye-2 {
+  position: absolute;
+  top: 140px;
+  right: 60px;
+  height: 80px;
+  width: 60px;
+  border-top-left-radius: 120px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 80px;
+  background-color: #6d827e;
+  overflow: hidden;
+  transform: rotate(-50deg);
+  animation: none;
+}
+.skull.sad .eye-2::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 5px;
+  height: 80px;
+  width: 60px;
+  border-top-left-radius: 120px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 80px;
+  background-color: #1a3540;
+}
+.skull.sad .mouth::after {
+  content: none;
+}
+.skull.sad .mouth .down {
+  display: none;
+}
+.skull.angry .eye-1 {
+  position: absolute;
+  top: 140px;
+  left: 60px;
+  height: 80px;
+  width: 60px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 120px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 60px;
+  transform: rotate(150deg);
+  background-color: #6d827e;
+  overflow: hidden;
+  animation: none;
+}
+.skull.angry .eye-1::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  height: 80px;
+  width: 60px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 120px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 60px;
+  background-color: #1a3540;
+}
+.skull.angry .eye-2 {
+  position: absolute;
+  top: 140px;
+  right: 60px;
+  height: 80px;
+  width: 60px;
+  border-top-left-radius: 120px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 60px;
+  border-bottom-right-radius: 20px;
+  background-color: #6d827e;
+  overflow: hidden;
+  transform: rotate(-140deg);
+  animation: none;
+}
+.skull.angry .eye-2::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: -10px;
+  height: 80px;
+  width: 60px;
+  border-top-left-radius: 120px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 60px;
+  border-bottom-right-radius: 20px;
+  background-color: #1a3540;
+}
+.skull.angry .eyebrow-1 {
+  position: absolute;
+  top: 100px;
+  left: 80px;
+  height: 120px;
+  width: 40px;
+  transform: rotate(120deg);
+  background-color: #dde2e8;
+}
+.skull.angry .eyebrow-2 {
+  position: absolute;
+  top: 100px;
+  right: 80px;
+  height: 120px;
+  width: 40px;
+  transform: rotate(-120deg);
+  background-color: #dde2e8;
+}
+.skull.angry .skull-extra::before {
+  animation: change_extra 0.1s 0.85s ease-in forwards;
+}
+.skull.angry .skull-extra::after {
+  animation: change_extra 0.1s 0.85s ease-in forwards;
+}
+.bone-1 {
+  opacity: 0;
+  position: absolute;
+  top: -60px;
+  left: 210px;
+  width: 70px;
+  height: 440px;
+  background-color: #9ac1af;
+  transform: rotate(45deg);
+}
+.bone-1 .top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 50px;
+}
+.bone-1 .top::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #9ac1af;
+}
+.bone-1 .top::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: -10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #9ac1af;
+}
+.bone-1 .bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 70px;
+  height: 50px;
+}
+.bone-1 .bottom::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: -10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #9ac1af;
+}
+.bone-1 .bottom::before {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  right: -10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #9ac1af;
+}
+.bone-1.angry {
+  animation: appear_bone 1s ease-in forwards;
+}
+.bone-2 {
+  opacity: 0;
+  position: absolute;
+  top: -60px;
+  right: 210px;
+  width: 70px;
+  height: 0px;
+  background-color: #9ac1af;
+  transform: rotate(-45deg);
+}
+.bone-2 .top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 50px;
+}
+.bone-2 .top::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #9ac1af;
+}
+.bone-2 .top::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: -10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #9ac1af;
+}
+.bone-2 .bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 70px;
+  height: 50px;
+}
+.bone-2 .bottom::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: -10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #9ac1af;
+}
+.bone-2 .bottom::before {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  right: -10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #9ac1af;
+}
+.bone-2.angry {
+  animation: appear_bone 1s ease-in forwards;
+}
+.shadow {
+  position: absolute;
+  bottom: -30px;
+  left: 49%;
+  transform: translateX(-49%);
+  width: 300px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #112027;
+  animation: grow_shadow 6s linear infinite;
+}
+/* ----------------------------------------------- */
+/*                   Keyframes                     */
+/* ----------------------------------------------- */
+@keyframes move_skull {
+  0% {
+    transform: translateY(0px);
+    will-change: transform;
+  }
+  50% {
+    transform: translateY(100px);
+    transition: transform 1.5s linear;
+    will-change: transform;
+  }
+  100% {
+    transform: translateY(0px);
+    will-change: transform;
+  }
+}
+@keyframes grow_shadow {
+  0% {
+    transform: translateX(-49%) scale(0.5);
+    will-change: transform;
+  }
+  50% {
+    transform: translateX(-49%) scale(0.8);
+    transition: transform 1.5s linear;
+    will-change: transform;
+  }
+  100% {
+    transform: translateX(-49%) scale(0.5);
+    will-change: transform;
+  }
+}
+@keyframes appear_bone {
+  0% {
+    opacity: 0;
+    height: 0px;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    height: 440px;
+  }
+}
+@keyframes change_extra {
+  0% {
+    background-color: #1a3540;
+  }
+  100% {
+    background-color: #9ac1af;
+  }
+}
+@keyframes blink_eye {
+  0% {
+    height: 60px;
+  }
+  1% {
+    height: 0px;
+  }
+  3% {
+    height: 60px;
+  }
+  100% {
+    height: 60px;
+  }
+}
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+</style>
+<title>Stellae</title>
+</head>
+<body>
+<html>
+  <head>
+    <title>Skeleton</title>
+  </head>
+  <body>
+    <div class="wrapper"> 
+      <div class="animate-wrapper">
+        <div id="skull" class="skull sad">
+          <div class="eye-1"></div>
+          <div class="eye-2"></div>
+          <div class="eyebrow-1"></div>
+          <div class="eyebrow-2"></div>
+          <div class="nose"></div>
+          <div class="skull-extra"></div>
+          <div class="mouth">
+            <ul class="tooth">
+              <li class="up"></li>
+              <li class="up"></li>
+              <li class="up"></li>
+              <li class="up"></li>
+              <li class="up"></li>
+              <li class="down"></li>
+              <li class="down"></li>
+              <li class="down"></li>
+              <li class="down"></li>
+              <li class="down"></li>
+            </ul>
+</div>
+        </div>
+        <div id="bone-1" class="bone-1">
+          <div class="top"></div>
+          <div class="bottom"></div>
+</div>
+        <div id="bone-2" class="bone-2">
+          <div class="top"></div>
+          <div class="bottom"></div>
+</div>
+      </div>
+      <div class="shadow"></div>
+    </div>
+  </body>
+</html>	
+
+<!-- perlin.js -->
+<script>
+/* --- Function for skull animation --- */
+this.changeExpression();
+setInterval(function(){ this.changeExpression(); }, 15000);
+
+function changeExpression () {
+    setTimeout(function(){ 
+      document.getElementById("skull").classList.remove("sad");
+      document.getElementById("skull").classList.add("angry");
+      document.getElementById("bone-1").classList.add("angry");
+      document.getElementById("bone-2").classList.add("angry");
+    }, 5000);
+    setTimeout(function(){ 
+      document.getElementById("skull").classList.remove("angry");
+      document.getElementById("bone-1").classList.remove("angry");
+      document.getElementById("bone-2").classList.remove("angry");
+    }, 11000);
+    setTimeout(function(){ 
+      document.getElementById("skull").classList.add("sad");
+    }, 15000);
+}
+</script>
+</body>
+</html>
