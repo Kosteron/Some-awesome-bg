@@ -6,7 +6,7 @@ Stellae is a kind of wallpaper engine but for linux. It uses chromium to display
 
 ## Getting Started
 
-Awesome screenshot here
+![](output.gif)
 
 ### Dependencies
 
